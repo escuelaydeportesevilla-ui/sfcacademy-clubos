@@ -4333,7 +4333,7 @@ function previewPatrLogo(input) {
 // así esta no se hace pesada cada vez que se guarda cualquier otra cosa en la app.
 async function syncLogoPatrocinador(id, logoDataUri) {
   try {
-    const pwd = sesion.rol==='admin' ? 'cbed2627' : sesion.rol==='club' ? sesion.user : sesion.rol==='arbitro' ? 'arb2627' : '';
+    const pwd = sesion.rol==='admin' ? 'sfcadmin2627' : sesion.rol==='club' ? sesion.user : sesion.rol==='arbitro' ? 'sfcarb2627' : '';
     await fetch(SCRIPT_URL, {
       method: 'POST',
       mode: 'no-cors',
@@ -4454,10 +4454,10 @@ function toast(msg) {
 
 // CREDENCIALES DE DEMO en consola
 console.log('%c SfcAcademy ', 'background:#C8102E;color:white;font-size:14px;padding:4px 12px;');
-console.log('Admin:   cbedadmin / cbed2627');
+console.log('Admin:   cbedadmin / sfcadmin2627');
 console.log('Club 1:  club01   / club01');
 console.log('Club 2:  club02   / club02');
-console.log('Árbitro: arbitro1 / arb2627');
+console.log('Árbitro: arbitro1 / sfcarb2627');
 console.log('Familias: acceso directo (sin contraseña)');
 
   // ══ GOOGLE SHEETS SYNC ══════════════════════════════════════
@@ -4570,7 +4570,7 @@ console.log('Familias: acceso directo (sin contraseña)');
     if (!SCRIPT_URL || !sesion) return;
     setSyncStatus('syncing');
     try {
-      const pwd = sesion.rol==='admin' ? 'cbed2627' : sesion.rol==='club' ? sesion.user : sesion.rol==='arbitro' ? 'arb2627' : '';
+      const pwd = sesion.rol==='admin' ? 'sfcadmin2627' : sesion.rol==='club' ? sesion.user : sesion.rol==='arbitro' ? 'sfcarb2627' : '';
       const items = DB[col];
 
       // Enviar items de la colección
@@ -4610,7 +4610,7 @@ console.log('Familias: acceso directo (sin contraseña)');
     if (!SCRIPT_URL || !sesion) return;
     setSyncStatus('loading');
     try {
-      const pwd = encodeURIComponent(sesion.rol==='admin'?'cbed2627':sesion.rol==='club'?sesion.user:sesion.rol==='arbitro'?'arb2627':'');
+      const pwd = encodeURIComponent(sesion.rol==='admin'?'sfcadmin2627':sesion.rol==='club'?sesion.user:sesion.rol==='arbitro'?'sfcarb2627':'');
       const j = await jsonpFetch(SCRIPT_URL + '?action=getAll&pwd=' + pwd);
       if (j.ok && j.data) {
         const d   = j.data;
@@ -4656,7 +4656,7 @@ console.log('Familias: acceso directo (sin contraseña)');
     if (!SCRIPT_URL || !sesion) return;
     setSyncStatus('loading');
     try {
-      const pwd = encodeURIComponent(sesion.rol==='admin'?'cbed2627':sesion.rol==='club'?sesion.user:sesion.rol==='arbitro'?'arb2627':'');
+      const pwd = encodeURIComponent(sesion.rol==='admin'?'sfcadmin2627':sesion.rol==='club'?sesion.user:sesion.rol==='arbitro'?'sfcarb2627':'');
       const j = await jsonpFetch(SCRIPT_URL + '?action=getAll&pwd=' + pwd);
       if (j.ok && j.data) {
         const d = j.data;
@@ -4688,9 +4688,9 @@ console.log('Familias: acceso directo (sin contraseña)');
     setSyncStatus('syncing');
     try {
       const pwd = encodeURIComponent(
-        sesion.rol==='admin'   ? 'cbed2627'  :
+        sesion.rol==='admin'   ? 'sfcadmin2627'  :
         sesion.rol==='club'    ? sesion.user :
-        sesion.rol==='arbitro' ? 'arb2627'  : ''
+        sesion.rol==='arbitro' ? 'sfcarb2627'  : ''
       );
       const cols = ['competiciones','equipos','jugadores','partidos','actas','noticias','goleadores','sugerencias','patrocinadores','sedes','clubes','personal','evaluaciones'];
       await Promise.all(cols.map(col => {
